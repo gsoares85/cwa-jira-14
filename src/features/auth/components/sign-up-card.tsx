@@ -1,3 +1,5 @@
+"use client";
+
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {DottedSeparator} from "@/components/dotted-separator";
 import {Input} from "@/components/ui/input";
@@ -13,7 +15,7 @@ import {signUpSchema} from "@/features/auth/schemas";
 import {useSignUp} from "@/features/auth/api/use-sign-up";
 
 export const SignUpCard = () => {
-    const { mutate } = useSignUp();
+    const { mutate, isPending } = useSignUp();
 
     const form = useForm<z.infer<typeof signUpSchema>>({
         resolver: zodResolver(signUpSchema),
@@ -99,7 +101,7 @@ export const SignUpCard = () => {
                             name="password"
                             control={form.control}
                         />
-                        <Button disabled={false} size="lg" className="w-full">
+                        <Button disabled={isPending} size="lg" className="w-full">
                             Register
                         </Button>
                     </form>
@@ -109,11 +111,11 @@ export const SignUpCard = () => {
                 <DottedSeparator />
             </div>
             <CardContent className="p-7 flex flex-col gap-y-4">
-                <Button variant="secondary" disabled={false} size="lg" className="w-full">
+                <Button variant="secondary" disabled={isPending} size="lg" className="w-full">
                     <FcGoogle className="mr-2 size-5" />
                     Login with Google
                 </Button>
-                <Button variant="secondary" disabled={false} size="lg" className="w-full">
+                <Button variant="secondary" disabled={isPending} size="lg" className="w-full">
                     <FaGithub className="mr-2 size-5" />
                     Login with Github
                 </Button>
