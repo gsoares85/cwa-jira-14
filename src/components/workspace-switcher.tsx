@@ -6,7 +6,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 import {WorkspaceAvatar} from "@/features/workspaces/components/workspace-avatar";
 import {useRouter} from "next/navigation";
 import {id} from "date-fns/locale";
-import {useWorkspaceId} from "@/features/workspaces/hooks/use-workspace-is";
+import {useWorkspaceId} from "@/features/workspaces/hooks/use-workspace-id";
 import {useCreateWorkspaceModal} from "@/features/workspaces/hooks/use-create-workspace-modal";
 
 export const WorkspaceSwitcher = () => {

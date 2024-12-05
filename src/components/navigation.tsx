@@ -4,7 +4,7 @@ import {GoCheckCircle, GoCheckCircleFill, GoHome, GoHomeFill} from "react-icons/
 import {SettingsIcon, UsersIcon} from "lucide-react";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
-import {useWorkspaceId} from "@/features/workspaces/hooks/use-workspace-is";
+import {useWorkspaceId} from "@/features/workspaces/hooks/use-workspace-id";
 import {usePathname} from "next/navigation";
 
 const routes = [
