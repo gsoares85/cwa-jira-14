@@ -2,7 +2,7 @@ import {Hono} from "hono";
 import {zValidator} from "@hono/zod-validator";
 import {createWorkspaceSchema, updateWorkspaceSchema} from "@/features/workspaces/schemas";
 import {sessionMiddleware} from "@/lib/session-middleware";
-import {BUCKET_URL, DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, PROJECT_ID, WORKSPACES_ID} from "@/config";
+import {BUCKET_URL, DATABASE_ID, IMAGES_BUCKET_ID, MEMBERS_ID, PROJECT_ID, PROJECTS_ID, WORKSPACES_ID} from "@/config";
 import {ID, Query} from "node-appwrite";
 import {MemberRole} from "@/features/members/types";
 import {generateInviteCode} from "@/lib/utils";
@@ -136,7 +136,7 @@ const app = new Hono()
                     imageUrl,
                 );
 
-                uploadedImageUrl = `${BUCKET_URL}/${IMAGES_BUCKET_ID}/files/${file.$id}/view?project=${PROJECT_ID}`;
+                uploadedImageUrl = `${BUCKET_URL}/${IMAGES_BUCKET_ID}/files/${file.$id}/view?project=${PROJECTS_ID}`;
             }
 
             const workspace = await databases.updateDocument(
